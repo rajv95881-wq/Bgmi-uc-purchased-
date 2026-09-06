@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGMI UC 30% OFF</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#0b0f16;color:#fff}
+header{padding:18px 20px;background:#111827;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+.logo{font-size:20px;font-weight:800;color:#ffd43b}
+nav a{color:#fff;text-decoration:none;margin-left:12px;font-size:13px}
+.hero{padding:60px 22px;text-align:center;background:linear-gradient(135deg,#171c2b,#0b0f16)}
+.hero h1{font-size:38px;margin-bottom:12px}
+.hero h1 span{color:#ffd43b}
+.hero p{color:#cbd5e1;margin-bottom:25px}
+.btn{display:inline-block;background:#ffd43b;color:#111;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:bold;border:0;cursor:pointer;font-size:16px}
+.section{padding:35px 20px;max-width:1000px;margin:auto}
+.section h2{text-align:center;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.card{background:#151b27;border:1px solid #293244;border-radius:14px;padding:20px;text-align:center}
+.card h3{margin:8px 0}
+.price{font-size:22px;font-weight:bold;color:#ffd43b;margin:12px}
+.old{text-decoration:line-through;color:#8b95a7;font-size:14px}
+.note{font-size:12px;color:#9ca3af;margin-top:15px;text-align:center}
+footer{text-align:center;padding:25px;color:#8b95a7;border-top:1px solid #202838}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🎮 BGMI UC</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#offers">Offers</a>
+<a href="#updates">Updates</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>BGMI UC <span>30% OFF</span></h1>
+<p>Latest offers, BGMI updates and gaming information — all in one place.</p>
+<a class="btn" href="#offers">View Offers</a>
+</section>
+
+<section class="section" id="offers">
+<h2>🔥 UC Offers</h2>
+<div class="cards">
+<div class="card"><h3>60 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(60)">Get Offer</button></div>
+<div class="card"><h3>325 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(325)">Get Offer</button></div>
+<div class="card"><h3>660 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(660)">Get Offer</button></div>
+<div class="card"><h3>1800 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(1800)">Get Offer</button></div>
+<div class="card"><h3>2000 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(2000)">Get Offer</button></div>
+<div class="card"><h3>3400 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(3400)">Get Offer</button></div>
+<div class="card"><h3>6000 UC</h3><div class="old">Regular Price</div><div class="price">30% OFF</div><button class="btn" onclick="selectOffer(6000)">Get Offer</button></div>
+</div>
+<p class="note">Important: 30% OFF ko tabhi use karein jab offer genuinely available/authorized ho. BGMI/KRAFTON se official affiliation ka claim bina authorization na karein.</p>
+</section>
+
+<section class="section" id="updates">
+<h2>📰 BGMI Updates</h2>
+<div class="card">
+<h3>Latest News & Events</h3>
+<p style="color:#cbd5e1;margin-top:10px">Yahan tum BGMI ke latest updates, events aur announcements add kar sakte ho.</p>
+</div>
+</section>
+
+
+<section class="section" id="uidPage" style="display:none">
+  <div class="card" style="max-width:520px;margin:auto">
+    <h2>🎮 Enter BGMI UID</h2>
+    <p style="color:#cbd5e1;margin:10px 0 18px">Selected offer: <strong id="selectedOffer"></strong></p>
+    <input id="uidInput" type="text" inputmode="numeric" placeholder="Enter BGMI UID"
+      style="width:100%;padding:14px;border-radius:10px;border:1px solid #293244;background:#0b0f16;color:#fff;font-size:16px">
+    <button class="btn" onclick="confirmUID()" style="margin-top:15px">Confirm</button>
+    <p id="uidError" style="color:#ff8a8a;margin-top:12px"></p>
+  </div>
+</section>
+
+<section class="section" id="paymentPage" style="display:none">
+  <div class="card" style="max-width:520px;margin:auto">
+    <h2>💳 Payment Options</h2>
+    <p style="color:#cbd5e1;margin:12px 0">UC: <strong id="payOffer"></strong></p>
+    <p style="color:#cbd5e1;margin-bottom:18px">BGMI UID: <strong id="payUID"></strong></p>
+    <button class="btn" onclick="finishPrank()" style="margin:6px">Paytm</button>
+    <button class="btn" onclick="finishPrank()" style="margin:6px">PhonePe</button>
+    <p class="note">Demo only — no real payment is processed.</p>
+  </div>
+</section>
+
+<section class="section" id="congratsPage" style="display:none">
+  <div class="card" style="max-width:600px;margin:auto;padding:35px">
+    <h2>🎉 Congratulations!</h2>
+    <p style="font-size:24px;margin-top:18px;color:#ffd43b;font-weight:bold">
+      You are getting April Fool! 😂
+    </p>
+    <button class="btn" onclick="backHome()" style="margin-top:22px">Back to Offers</button>
+  </div>
+</section>
+
+<footer>
+© 2026 BGMI UC 30% OFF • Fan/independent website
+</footer>
+
+
+<script>
+let selectedUC = 0;
+
+function hideScreens() {
+  document.getElementById("uidPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("congratsPage").style.display = "none";
+}
+
+function selectOffer(uc) {
+  selectedUC = uc;
+  hideScreens();
+  document.getElementById("selectedOffer").textContent = uc + " UC";
+  document.getElementById("uidInput").value = "";
+  document.getElementById("uidError").textContent = "";
+  document.getElementById("uidPage").style.display = "block";
+  document.getElementById("uidPage").scrollIntoView({behavior:"smooth"});
+}
+
+function confirmUID() {
+  const uid = document.getElementById("uidInput").value.trim();
+  if (!uid) {
+    document.getElementById("uidError").textContent = "Please enter your BGMI UID.";
+    return;
+  }
+  document.getElementById("payOffer").textContent = selectedUC + " UC";
+  document.getElementById("payUID").textContent = uid;
+  hideScreens();
+  document.getElementById("paymentPage").style.display = "block";
+  document.getElementById("paymentPage").scrollIntoView({behavior:"smooth"});
+}
+
+function finishPrank() {
+  hideScreens();
+  document.getElementById("congratsPage").style.display = "block";
+  document.getElementById("congratsPage").scrollIntoView({behavior:"smooth"});
+}
+
+function backHome() {
+  hideScreens();
+  document.getElementById("offers").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
